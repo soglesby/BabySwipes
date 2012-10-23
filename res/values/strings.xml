@@ -9,5 +9,36 @@
     <string name="title_activity_baby_swipes">Baby Swipes</string>
     <string name="title_activity_training">TrainingActivity</string>
     <string name="title_activity_data">DataActivity</string>
+    <string name="trainingButton">Add Tags</string>
+    <string name="dataButton">Activity Log</string>
+
+    <string-array name="diaperTagsArray">
+        <item>Diaper Change</item>
+        <item>Diaper Change - Wet</item>
+        <item>Diaper Change - BM</item>
+    </string-array>
+    <string-array name="feedingTagsArray">
+        <item>Feeding</item>
+        <item>Feeding - Right Side</item>
+        <item>Feeding - Left Side</item>
+        <item>Feeding - Bottled Breastmilk</item>
+        <item>Feeding - Formula</item>
+        <item>Feeding - Solid</item>
+    </string-array>
+    <string-array name="otherTagsArray">
+        <item>Nap</item>
+        <item>Medicine</item>
+    </string-array>
+
+    <string name="title_activity_feeding_config">FeedingConfig</string>
+
+    <string-array name="tagTypeArray">
+        <item>Feedings</item>
+        <item>Diapers</item>
+        <item>Other</item>
+    </string-array>
+
+    <string name="title_activity_diaper_config">Diaper Tag Config</string>
+    <string name="title_activity_other_config">Other Tag Configuration</string>
 
 </resources>

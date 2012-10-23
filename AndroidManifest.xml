@@ -36,6 +36,30 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.babyswipes.BabySwipes" />
         </activity>
+        <activity
+            android:name=".FeedingConfig"
+            android:label="@string/title_activity_feeding_config"
+            android:theme="@android:style/Theme.Holo.Light.Dialog" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.babyswipes.TrainingActivity" />
+        </activity>
+        <activity
+            android:name=".DiaperConfig"
+            android:label="@string/title_activity_diaper_config"
+            android:theme="@android:style/Theme.Holo.Light.Dialog" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.babyswipes.TrainingActivity" />
+        </activity>
+        <activity
+            android:name=".OtherConfig"
+            android:label="@string/title_activity_other_config"
+            android:theme="@android:style/Theme.Holo.Light.Dialog" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.babyswipes.TrainingActivity" />
+        </activity>
     </application>
 
 </manifest>
