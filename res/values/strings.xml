@@ -14,16 +14,16 @@
 
     <string-array name="diaperTagsArray">
         <item>Diaper Change</item>
-        <item>Diaper Change - Wet</item>
-        <item>Diaper Change - BM</item>
+        <item>Wet</item>
+        <item>BM</item>
     </string-array>
     <string-array name="feedingTagsArray">
         <item>Feeding</item>
-        <item>Feeding - Right Side</item>
-        <item>Feeding - Left Side</item>
-        <item>Feeding - Bottled Breastmilk</item>
-        <item>Feeding - Formula</item>
-        <item>Feeding - Solid</item>
+        <item>Right Side</item>
+        <item>Left Side</item>
+        <item>Bottled Breastmilk</item>
+        <item>Formula</item>
+        <item>Solid</item>
     </string-array>
     <string-array name="otherTagsArray">
         <item>Nap</item>
@@ -40,5 +40,27 @@
 
     <string name="title_activity_diaper_config">Diaper Tag Config</string>
     <string name="title_activity_other_config">Other Tag Configuration</string>
+    <string-array name="reminderTimesArray">
+        <item>None</item><item >1 hour</item>
+        <item >2 hours</item>
+        <item >3 hours</item>
+        <item >4 hours</item>
+        <item >5 hours</item>
+        <item >6 hours</item>
+        <item >7 hours</item>
+        <item >8 hours</item>
+        <item >9 hours</item>
+        <item >10 hours</item>
+        <item >11 hours</item>
+        <item >12 hours</item>
+        <item >1 day</item>
+        
+    </string-array>
+    
+    <string name="actionText">Action</string>
+    <string name="reminderText">Reminder</string>
+    <string name="scanText">Begin NFC Tag Programming</string>
+    <string name="cancelButton">Cancel</string>
+    <string name="programButton">Program</string>
 
 </resources>

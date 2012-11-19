@@ -1,14 +1,64 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content" >
-
-    <Spinner
-        android:id="@+id/feedingSpinner"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+    
+    <GridLayout
+        android:id="@+id/gridLayout1"
+        android:rowCount="2"
+        android:columnCount="2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:entries="@array/feedingTagsArray" />
+        android:layout_height="wrap_content" >
+         
+	    <TextView
+	        android:id="@+id/actionTextView"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/actionText"
+	        android:textAppearance="?android:attr/textAppearanceMedium" />
+	    
+	    <Spinner
+	        android:id="@+id/feedingSpinner"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:entries="@array/feedingTagsArray" />
+	
+	    <TextView
+	        android:id="@+id/reminderTextView"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/reminderText"
+	        android:textAppearance="?android:attr/textAppearanceMedium" />
+	    
+	    <Spinner
+	        android:id="@+id/reminderSpinner"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:entries="@array/reminderTimesArray" />
 
-</RelativeLayout>
+    </GridLayout>
+
+    <LinearLayout
+        android:id="@+id/cancelokLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+	        android:id="@+id/cancelButton"
+	        style="@android:style/Widget.Holo.Light.Button.Borderless.Small"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:text="@string/cancelButton" />
+	
+	    <Button
+	        android:id="@+id/programButton"
+	        style="@android:style/Widget.Holo.Light.Button.Borderless.Small"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:text="@string/programButton" />
+	</LinearLayout>
+</LinearLayout>

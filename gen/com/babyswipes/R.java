@@ -12,6 +12,7 @@ public final class R {
         public static final int diaperTagsArray=0x7f060000;
         public static final int feedingTagsArray=0x7f060001;
         public static final int otherTagsArray=0x7f060002;
+        public static final int reminderTimesArray=0x7f060004;
         public static final int tagTypeArray=0x7f060003;
     }
     public static final class attr {
@@ -26,12 +27,19 @@ public final class R {
         public static final int ic_launcher=0x7f020001;
     }
     public static final class id {
+        public static final int actionTextView=0x7f090003;
+        public static final int cancelButton=0x7f090006;
+        public static final int cancelokLayout=0x7f090005;
         public static final int dataButton=0x7f090001;
-        public static final int diaperSpinner=0x7f090002;
-        public static final int feedingSpinner=0x7f090003;
-        public static final int menu_settings=0x7f090006;
-        public static final int otherSpinner=0x7f090004;
-        public static final int tagTypeList=0x7f090005;
+        public static final int diaperSpinner=0x7f090004;
+        public static final int feedingSpinner=0x7f090008;
+        public static final int gridLayout1=0x7f090002;
+        public static final int menu_settings=0x7f09000d;
+        public static final int otherSpinner=0x7f09000b;
+        public static final int programButton=0x7f090007;
+        public static final int reminderSpinner=0x7f09000a;
+        public static final int reminderTextView=0x7f090009;
+        public static final int tagTypeList=0x7f09000c;
         public static final int trainingButton=0x7f090000;
     }
     public static final class layout {
@@ -51,10 +59,15 @@ public final class R {
         public static final int activity_training=0x7f080005;
     }
     public static final class string {
+        public static final int actionText=0x7f05000e;
         public static final int app_name=0x7f050000;
+        public static final int cancelButton=0x7f050011;
         public static final int dataButton=0x7f05000a;
         public static final int hello_world=0x7f050004;
         public static final int menu_settings=0x7f050005;
+        public static final int programButton=0x7f050012;
+        public static final int reminderText=0x7f05000f;
+        public static final int scanText=0x7f050010;
         public static final int title_activity_baby_swipes=0x7f050006;
         public static final int title_activity_data=0x7f050008;
         public static final int title_activity_diaper_config=0x7f05000c;
