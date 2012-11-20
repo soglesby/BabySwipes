@@ -2,18 +2,24 @@ package com.babyswipes;
 
 import android.os.Bundle;
 import android.app.Activity;
+//import android.content.Intent;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.support.v4.app.NavUtils;
 
-public class FeedingConfig extends Activity {
+public class FeedingConfig extends Activity implements OnClickListener{
     private static final String TAG = "FeedingConfig";
     private Spinner feedingSpinner;
+    private Spinner reminderSpinner;
+    private Button programButton;
+    private Button cancelButton;
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -21,10 +27,29 @@ public class FeedingConfig extends Activity {
         setContentView(R.layout.activity_feeding_config);
 
         feedingSpinner = (Spinner) findViewById(R.id.feedingSpinner);
+        reminderSpinner = (Spinner) findViewById(R.id.reminderSpinner);
+        programButton = (Button) findViewById(R.id.programButton);
+        programButton.setOnClickListener(this);
+        cancelButton = (Button) findViewById(R.id.cancelButton);
+        cancelButton.setOnClickListener(this);
+        
         feedingSpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos,long id) {
                 Log.d(TAG, "Feeding item selected " + pos);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+                // TODO Auto-generated method stub
+                
+            }
+        });
+        
+        reminderSpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int pos,long id) {
+                Log.d(TAG, "Reminder item selected " + pos);
             }
 
             @Override
@@ -52,4 +77,19 @@ public class FeedingConfig extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onClick(View v) {
+        //Intent i;
+        switch(v.getId()) {
+        case R.id.cancelButton:
+            Log.d(TAG, "cancelButton onClicked");
+            NavUtils.navigateUpFromSameTask(this);
+            break;
+        case R.id.programButton:
+            Log.d(TAG, "programButton onCLicked");
+            //i = new Intent(this, DataActivity.class);
+            //startActivity(i);
+            break;
+        }
+    }
 }
