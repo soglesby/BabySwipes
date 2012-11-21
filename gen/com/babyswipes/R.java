@@ -23,24 +23,33 @@ public final class R {
         public static final int padding_small=0x7f040000;
     }
     public static final class drawable {
-        public static final int ic_action_search=0x7f020000;
-        public static final int ic_launcher=0x7f020001;
+        public static final int bottle=0x7f020000;
+        public static final int diaper=0x7f020001;
+        public static final int duck=0x7f020002;
+        public static final int ic_action_search=0x7f020003;
+        public static final int ic_bottle=0x7f020004;
+        public static final int ic_diaper=0x7f020005;
+        public static final int ic_duck=0x7f020006;
+        public static final int ic_launcher=0x7f020007;
     }
     public static final class id {
-        public static final int actionTextView=0x7f090003;
-        public static final int cancelButton=0x7f090006;
-        public static final int cancelokLayout=0x7f090005;
+        public static final int actionTextView=0x7f090005;
+        public static final int cancelButton=0x7f090008;
+        public static final int cancelokLayout=0x7f090007;
         public static final int dataButton=0x7f090001;
-        public static final int diaperSpinner=0x7f090004;
-        public static final int feedingSpinner=0x7f090008;
-        public static final int gridLayout1=0x7f090002;
-        public static final int menu_settings=0x7f09000d;
-        public static final int otherSpinner=0x7f09000b;
-        public static final int programButton=0x7f090007;
-        public static final int reminderSpinner=0x7f09000a;
-        public static final int reminderTextView=0x7f090009;
-        public static final int tagTypeList=0x7f09000c;
+        public static final int diaperSpinner=0x7f090006;
+        public static final int feedingSpinner=0x7f09000a;
+        public static final int gridLayout1=0x7f090004;
+        public static final int menu_settings=0x7f090010;
+        public static final int otherSpinner=0x7f09000d;
+        public static final int programButton=0x7f090009;
+        public static final int reminderSpinner=0x7f09000c;
+        public static final int reminderTextView=0x7f09000b;
+        public static final int tagTypeList=0x7f09000f;
+        public static final int textView1=0x7f09000e;
+        public static final int text_view=0x7f090002;
         public static final int trainingButton=0x7f090000;
+        public static final int write_tag_button=0x7f090003;
     }
     public static final class layout {
         public static final int activity_baby_swipes=0x7f030000;
@@ -48,7 +57,8 @@ public final class R {
         public static final int activity_diaper_config=0x7f030002;
         public static final int activity_feeding_config=0x7f030003;
         public static final int activity_other_config=0x7f030004;
-        public static final int activity_training=0x7f030005;
+        public static final int activity_tag=0x7f030005;
+        public static final int activity_training=0x7f030006;
     }
     public static final class menu {
         public static final int activity_baby_swipes=0x7f080000;
@@ -56,7 +66,8 @@ public final class R {
         public static final int activity_diaper_config=0x7f080002;
         public static final int activity_feeding_config=0x7f080003;
         public static final int activity_other_config=0x7f080004;
-        public static final int activity_training=0x7f080005;
+        public static final int activity_tag=0x7f080005;
+        public static final int activity_training=0x7f080006;
     }
     public static final class string {
         public static final int actionText=0x7f05000e;
@@ -73,6 +84,7 @@ public final class R {
         public static final int title_activity_diaper_config=0x7f05000c;
         public static final int title_activity_feeding_config=0x7f05000b;
         public static final int title_activity_other_config=0x7f05000d;
+        public static final int title_activity_tag=0x7f050013;
         public static final int title_activity_training=0x7f050007;
         public static final int title_section1=0x7f050003;
         public static final int title_section2=0x7f050002;
