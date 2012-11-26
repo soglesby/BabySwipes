@@ -40,27 +40,31 @@
 
     <string name="title_activity_diaper_config">Diaper Tag Config</string>
     <string name="title_activity_other_config">Other Tag Configuration</string>
+
     <string-array name="reminderTimesArray">
-        <item>None</item><item >1 hour</item>
-        <item >2 hours</item>
-        <item >3 hours</item>
-        <item >4 hours</item>
-        <item >5 hours</item>
-        <item >6 hours</item>
-        <item >7 hours</item>
-        <item >8 hours</item>
-        <item >9 hours</item>
-        <item >10 hours</item>
-        <item >11 hours</item>
-        <item >12 hours</item>
-        <item >1 day</item>
-        
+        <item>None</item>
+        <item>1 hour</item>
+        <item>2 hours</item>
+        <item>3 hours</item>
+        <item>4 hours</item>
+        <item>5 hours</item>
+        <item>6 hours</item>
+        <item>7 hours</item>
+        <item>8 hours</item>
+        <item>9 hours</item>
+        <item>10 hours</item>
+        <item>11 hours</item>
+        <item>12 hours</item>
+        <item>1 day</item>
     </string-array>
-    
+
     <string name="actionText">Action</string>
     <string name="reminderText">Reminder</string>
     <string name="scanText">Begin NFC Tag Programming</string>
     <string name="cancelButton">Cancel</string>
     <string name="programButton">Program</string>
+    <string name="nfcPrompt">Place NFC tag against the back of the device and hold</string><string name="nfcSuccess">Tag programmed successfully!</string>
+    <string name="nfcFail">Tag programming failed</string>
+    
 
 </resources>
