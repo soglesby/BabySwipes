@@ -2,17 +2,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
-    
-    
-        <ListView
+
+    <ListView
         android:id="@+id/tagTypeList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:entries="@array/tagTypeArrayFeedingGraph" >
-
     </ListView>
-    
 
 </RelativeLayout>

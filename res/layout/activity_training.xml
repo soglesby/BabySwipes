@@ -10,7 +10,6 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:entries="@array/tagTypeArray" >
-
     </ListView>
 
 </RelativeLayout>
