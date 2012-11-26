@@ -5,24 +5,25 @@ import java.util.Calendar;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.gesture.Gesture;
+import android.gesture.GestureOverlayView;
+import android.gesture.GestureOverlayView.OnGesturePerformedListener;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.GestureDetector;
-import android.view.GestureDetector.OnGestureListener;
 import android.view.Menu;
 import android.view.MotionEvent;
 import android.widget.TextView;
 
-public class TagActivity extends Activity implements OnGestureListener {
+public class TagActivity extends Activity implements OnGesturePerformedListener  {
 
 	private TextView tagText;
 	private TextView timeText;
 	private TextView errorText;
 	
-	private GestureDetector gDetector;
 	private BabySwipesDB mDataBase;
 
 	@Override
@@ -76,40 +77,10 @@ public class TagActivity extends Activity implements OnGestureListener {
 	}
 
 	@Override
-	public boolean onDown(MotionEvent e) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
-			float velocityY) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public void onLongPress(MotionEvent e) {
+	public void onGesturePerformed(GestureOverlayView overlay, Gesture gesture) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
-	public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX,
-			float distanceY) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
-	@Override
-	public void onShowPress(MotionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public boolean onSingleTapUp(MotionEvent e) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 }
