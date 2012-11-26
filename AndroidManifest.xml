@@ -69,9 +69,39 @@
             android:label="@string/title_activity_tag" >
             <intent-filter>
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+
                 <data android:mimeType="application/com.babyswipes" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="FeedingGraph"
+            android:label="@string/title_feeding_graph" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.babyswipes.DataActivity" />
+        </activity>
+        <activity
+            android:name=".DiaperGraph"
+            android:label="@string/title_activity_diaper_graph" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.babyswipes.DataActivity" />
+        </activity>
+        <activity
+            android:name=".NapGraph"
+            android:label="@string/title_activity_nap_graph" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.babyswipes.DataActivity" />
+        </activity>
+        <activity
+            android:name=".MedicineGraph"
+            android:label="@string/title_activity_medicine_graph" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.babyswipes.DataActivity" />
         </activity>
     </application>
 

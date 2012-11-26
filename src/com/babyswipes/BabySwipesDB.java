@@ -384,7 +384,7 @@ public class BabySwipesDB extends SQLiteOpenHelper
 	 * @param number Number of swipes to return, must be non-negative
 	 * @return Array of integers, that represents the swipe times for this tag
 	 */
-	public int[] getRecentSwipesForTag(String tagName, int number)
+	public Number[] getRecentSwipesForTag(String tagName, int number) //changed to return Number[]
 	{
         Log.d(TAG, "getting recent " + number + " swipes for tag: " + tagName);
         
@@ -406,7 +406,7 @@ public class BabySwipesDB extends SQLiteOpenHelper
 		int baseLength = this.getNumberSwipesForTag(tagName);
 		int length = (baseLength < number ? baseLength : number);
 		
-		int[] swipeTimes = new int[length];
+		Number[] swipeTimes = new Number[length];
 
         cols[0] = TAG_SWIPE_TIME;
         result = mDB.query(TABLE_TAG_USAGE, cols, (TAG_NAME + "='" + tagName + "'"), null, null, null, (TAG_SWIPE_TIME + " desc"), ("0, " + length));

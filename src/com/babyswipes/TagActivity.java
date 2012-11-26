@@ -18,7 +18,7 @@ import android.view.Menu;
 import android.view.MotionEvent;
 import android.widget.TextView;
 
-public class TagActivity extends Activity implements OnGesturePerformedListener  {
+public class TagActivity extends Activity {
 
 	private TextView tagText;
 	private TextView timeText;
@@ -55,16 +55,17 @@ public class TagActivity extends Activity implements OnGesturePerformedListener 
 			
 			// FIXME : maybe store time in long ? 
 			int timestamp = (int) currentTime.getTimeInMillis();
-			SimpleDateFormat sdf = new SimpleDateFormat("Recorded at h:mm:ss a");
+			SimpleDateFormat sdf = new SimpleDateFormat("h:mm:ss a");
 			String displayDate = sdf.format(currentTime.getTime());
-			timeText.setText(displayDate);
 			
 			if(mDataBase.addSwipe(activityName, timestamp)){
 				tagText.setText(activityName);
 				errorText.setText("");
+				timeText.setText("Recorded at " + displayDate);
 			} else {
 				tagText.setText(activityName + " not recorded");
 				errorText.setText(activityName + " has not been registered with this device");
+				timeText.setText("");
 			}
 			
 		}
@@ -75,12 +76,5 @@ public class TagActivity extends Activity implements OnGesturePerformedListener 
 		getMenuInflater().inflate(R.menu.activity_tag, menu);
 		return true;
 	}
-
-	@Override
-	public void onGesturePerformed(GestureOverlayView overlay, Gesture gesture) {
-		// TODO Auto-generated method stub
-		
-	}
-
 
 }

@@ -40,7 +40,6 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:gestureColor="#ff0000" >
-
     </android.gesture.GestureOverlayView>
 
 </RelativeLayout>
