@@ -67,21 +67,21 @@ public class BabySwipes extends Activity implements OnClickListener {
         
         mDataBase.clearAllData();              // only use if you want to wipe the data
 
-        mDataBase.addTagType("feeding");
-        mDataBase.addTagType("medicine");
-        mDataBase.addTagType("diaper");
+        mDataBase.addTagType("Feeding");
+        mDataBase.addTagType("Medicine");
+        mDataBase.addTagType("Diaper");
 
-        mDataBase.addSwipe("feeding", 100);
-        mDataBase.addSwipe("feeding", 200);
-        mDataBase.addSwipe("feeding", 300);
-        mDataBase.addSwipe("feeding", 400);
+        mDataBase.addSwipe("Feeding", 100);
+        mDataBase.addSwipe("Feeding", 200);
+        mDataBase.addSwipe("Feeding", 300);
+        mDataBase.addSwipe("Feeding", 400);
 
-        mDataBase.addSwipe("medicine", 250);
-        mDataBase.addSwipe("medicine", 500);
+        mDataBase.addSwipe("Medicine", 250);
+        mDataBase.addSwipe("Medicine", 500);
 
-        mDataBase.addSwipe("diaper", 150);
-        mDataBase.addSwipe("diaper", 300);
-        mDataBase.addSwipe("diaper", 450);
+        mDataBase.addSwipe("Diaper", 150);
+        mDataBase.addSwipe("Diaper", 300);
+        mDataBase.addSwipe("Diaper", 450);
         
         int numRecent = 5;
         BabySwipesDB.BabySwipe[] bs = mDataBase.getRecentSwipes(numRecent);
@@ -131,6 +131,12 @@ public class BabySwipes extends Activity implements OnClickListener {
 		}
 	}
 
+	/**
+	 * TODO DELETE
+	 * Temp code used to test the tag reading
+	 * @param tag
+	 * @return
+	 */
 	private boolean writeTag(Tag tag) {
 		// record to launch Play Store if app is not installed
 		NdefRecord appRecord = NdefRecord
