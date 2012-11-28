@@ -75,6 +75,10 @@
     <string name="title_feeding_graph">Feeding Graph</string>
     <string name="title_activity_diaper_graph">DiaperGraph</string>
     <string name="title_activity_nap_graph">NapGraph</string>
-    <string name="title_activity_medicine_graph">MedicineGraph</string>    
+    <string name="title_activity_medicine_graph">MedicineGraph</string>
+    <string-array name="mainActivityArray">
+        <item >Add a Tag</item>
+        <item >View Data</item>
+    </string-array>    
 
 </resources>

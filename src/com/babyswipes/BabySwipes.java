@@ -1,28 +1,77 @@
 package com.babyswipes;
 
+import java.text.SimpleDateFormat;
+
+import com.babyswipes.BabySwipesDB.BabySwipe;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.GridView;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.TextView;
 
-public class BabySwipes extends Activity implements OnClickListener {
+public class BabySwipes extends Activity implements OnItemClickListener {
     private static final String TAG = "BabySwipes";
-    Button trainingButton;
-    Button dataButton;
+    ListView theList;
+    TextView textNumTags;
+    BabySwipesDB myDB;
+    GridView theGrid;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_baby_swipes);
+
+        theList = (ListView) findViewById(R.id.mainActivityListView);
+        theList.setOnItemClickListener(this);
         
-        trainingButton = (Button) findViewById(R.id.trainingButton);
-        trainingButton.setOnClickListener(this);
-        dataButton = (Button) findViewById(R.id.dataButton);
-        dataButton.setOnClickListener(this);
+        myDB = new BabySwipesDB(getBaseContext());
+        
+        /*
+        myDB.clearAllData();
+
+        myDB.addTagType("medicine");
+        myDB.addTagType("feeding");
+        myDB.addTagType("diaper");
+        myDB.addTagType("nap");
+
+        myDB.addSwipe("medicine", 1354077250);
+        myDB.addSwipe("medicine", 1354067250);
+        myDB.addSwipe("feeding", 1354057250);
+        myDB.addSwipe("feeding", 1354047250);
+        myDB.addSwipe("diaper", 1354037250);
+        myDB.addSwipe("nap", 1354027250);
+        */
+        
+        String text = "" + myDB.getNumberOfTags();
+        textNumTags = (TextView) findViewById(R.id.tagNumText);
+        textNumTags.setText(text);
+        
+    	String[] data = new String[10];
+        BabySwipe recent[] = myDB.getRecentSwipes(5);
+        
+        SimpleDateFormat formatter = new SimpleDateFormat("M-d h:mm:ss a");
+        
+        for(int i=0; i<recent.length; ++i)
+        {
+        	data[(i*2)] 	= recent[i].tagName;
+        	data[(i*2) + 1] = formatter.format(recent[i].swipeTime);
+        }
+        
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+				android.R.layout.simple_list_item_1, data);
+
+        theGrid = (GridView) findViewById(R.id.mainGrid);
+        theGrid.setNumColumns(2);
+        theGrid.setAdapter(adapter);
     }
 
     @Override
@@ -30,22 +79,21 @@ public class BabySwipes extends Activity implements OnClickListener {
         getMenuInflater().inflate(R.menu.activity_baby_swipes, menu);
         return true;
     }
-
-    @Override
-    public void onClick(View v) {
-        Intent i;
-        switch(v.getId()) {
-        case R.id.trainingButton:
-            Log.d(TAG, "trainingButton onClicked");
-            i = new Intent(this, TrainingActivity.class);
-            startActivity(i);
+    
+    //@Override
+    public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
+        Intent i = null;
+        //Log.d(TAG, pos + " selected");
+        switch(pos) {
+        case 0:
+            i = new Intent(this, TrainingActivity.class);  
             break;
-        case R.id.dataButton:
-            Log.d(TAG, "dataButton onCLicked");
+        case 1:
             i = new Intent(this, DataActivity.class);
-            startActivity(i);
-            break;
+            break;   
         }
+        if (i != null) 
+            startActivity(i);
     }
 
     
