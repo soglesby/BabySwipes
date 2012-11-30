@@ -1,15 +1,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical" >
+    android:divider="?android:attr/dividerHorizontal"
+    android:showDividers="middle"
+    android:orientation="vertical"
+    android:paddingLeft="16dp" >
     
     <GridLayout
         android:id="@+id/gridLayout1"
         android:rowCount="2"
         android:columnCount="2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingBottom="16dp" >
 
         <TextView
             android:id="@+id/actionTextView"
@@ -29,6 +34,8 @@
         android:id="@+id/cancelokLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:divider="?android:attr/dividerVertical"
+        android:showDividers="middle"
         android:orientation="horizontal" >
 
         <Button

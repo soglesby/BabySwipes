@@ -30,7 +30,7 @@
         <item>Medicine</item>
     </string-array>
 
-    <string name="title_activity_feeding_config">FeedingConfig</string>
+    <string name="title_activity_feeding_config">Configure Feeding Tag</string>
 
     <string-array name="tagTypeArray">
         <item>Feedings</item>
@@ -38,8 +38,8 @@
         <item>Other</item>
     </string-array>
 
-    <string name="title_activity_diaper_config">Diaper Tag Config</string>
-    <string name="title_activity_other_config">Other Tag Configuration</string>
+    <string name="title_activity_diaper_config">Configure Diaper Tag</string>
+    <string name="title_activity_other_config">Configure Other Tag</string>
 
     <string-array name="reminderTimesArray">
         <item>None</item>
