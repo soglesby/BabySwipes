@@ -23,7 +23,7 @@ import java.text.*;
 import java.util.Arrays;
 import java.util.Date;
 
-public class NapGraph extends Activity {
+public class NapGraph extends BaseActivity {
     private static final String TAG = "NapGraph";
 	private XYPlot mySimpleXYPlot;
 	
@@ -185,17 +185,6 @@ public class NapGraph extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_diaper_graph, menu);
         return true;
-    }
-
-    
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                NavUtils.navigateUpFromSameTask(this);
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
 }
