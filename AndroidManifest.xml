@@ -22,7 +22,6 @@
             android:label="@string/title_activity_baby_swipes" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -94,11 +93,11 @@
         </activity>
         <activity
             android:name=".TagActivity"
-            android:label="@string/title_activity_tag" >
+            android:label="@string/title_activity_baby_swipes" >
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
+                <data android:mimeType="application/com.babyswipes"/>
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
     </application>

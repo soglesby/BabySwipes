@@ -84,6 +84,6 @@
         <item>View Data</item>
     </string-array>
 
-    <string name="title_activity_tag">Activity Detected</string>
+    <string name="title_activity_tag">Tag Activity</string>
 
 </resources>

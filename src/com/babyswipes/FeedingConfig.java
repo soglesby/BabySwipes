@@ -29,11 +29,14 @@ public class FeedingConfig extends Activity implements OnClickListener{
     private boolean inWriteMode;
     private String activityPayload;
     private String alertPayload;
+    private BabySwipesDB mDataBase;
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feeding_config);
+        
+        mDataBase = new BabySwipesDB(getBaseContext());
 
         feedingSpinner = (Spinner) findViewById(R.id.feedingSpinner);
         reminderSpinner = (Spinner) findViewById(R.id.reminderSpinner);
@@ -184,11 +187,13 @@ public class FeedingConfig extends Activity implements OnClickListener{
             inWriteMode = false;
             
             // write to newly scanned tag
+            String activity = "Feeding/" + activityPayload + "/" + alertPayload;
             Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
-            nfcResult = NfcUtil.programTag(tag, "Feeding/" + activityPayload + "/" + alertPayload);
+            nfcResult = NfcUtil.programTag(tag, activity);
             if (nfcResult) {
                 Toast.makeText(this, R.string.nfcSuccess, Toast.LENGTH_LONG).show();
                 NavUtils.navigateUpFromSameTask(this);
+                mDataBase.addTagType(activity);
             }
         }
     }
