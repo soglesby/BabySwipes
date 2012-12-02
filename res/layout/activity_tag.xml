@@ -14,16 +14,6 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
-        android:id="@+id/textView_Timestamp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView_Activity"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:text="[Timestamp]"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
         android:id="@+id/textView_ErrorMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -42,12 +32,31 @@
         android:gestureColor="#ff0000" >
     </android.gesture.GestureOverlayView>
 
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView_ErrorMessage"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/baby" />
+
     <Button
         android:id="@+id/button_close"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/textView_Timestamp"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        android:layout_marginTop="42dp"
         android:text="@string/okButton" />
+
+    <TextView
+        android:id="@+id/textView_Timestamp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="23dp"
+        android:text="[Timestamp]"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>

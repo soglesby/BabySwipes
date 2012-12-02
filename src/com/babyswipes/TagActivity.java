@@ -4,22 +4,17 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.StringTokenizer;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.gesture.Gesture;
-import android.gesture.GestureOverlayView;
-import android.gesture.GestureOverlayView.OnGesturePerformedListener;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.view.GestureDetector;
 import android.view.Menu;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class TagActivity extends BaseActivity {
@@ -27,6 +22,7 @@ public class TagActivity extends BaseActivity {
 	private TextView tagText;
 	private TextView timeText;
 	private TextView errorText;
+	private ImageView image; 
 
 	private BabySwipesDB mDataBase;
 	private Button closeButton;
@@ -44,6 +40,7 @@ public class TagActivity extends BaseActivity {
 		timeText = (TextView) findViewById(R.id.textView_Timestamp);
 		errorText = (TextView) findViewById(R.id.textView_ErrorMessage);
 		closeButton = (Button) this.findViewById(R.id.button_close);
+		image = (ImageView) findViewById(R.id.imageView1);
 
 		// Read Tag
 		Intent intent = getIntent();
@@ -74,6 +71,7 @@ public class TagActivity extends BaseActivity {
 				tagText.setText(activityName);
 				errorText.setText("");
 				timeText.setText("Recorded at " + displayDate);
+				switchPicture(activityName);
 				
 				this.closeButton.setOnClickListener(new OnClickListener() {
 					@Override
@@ -99,6 +97,27 @@ public class TagActivity extends BaseActivity {
 				});
 			}
 			
+		}
+	}
+
+	/**
+	 * Some items match images - this will dynamically switch the image based on the activity
+	 * @param activityName
+	 */
+	private void switchPicture(String activityName) {
+		
+		// @TODO These strings should really be converted to some enum or constants file
+		if(activityName.contains("Diaper")){
+			image.setImageResource(R.drawable.diaper);
+		}
+		else if(activityName.contains("Feeding")){
+			image.setImageResource(R.drawable.bottle);
+		}
+		else if(activityName.contains("Nap")){
+			image.setImageResource(R.drawable.nap);
+		}
+		else if(activityName.contains("Medicine")){
+			image.setImageResource(R.drawable.medicine);
 		}
 	}
 
