@@ -12,6 +12,7 @@
     <string name="title_activity_data">Data Activity</string>
     <string name="trainingButton">Add Tags</string>
     <string name="dataButton">Activity Log</string>
+    <string name="okButton">Ok</string>
 
     <string-array name="diaperTagsArray">
         <item>Diaper Change</item>

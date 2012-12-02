@@ -17,6 +17,9 @@ import android.os.Parcelable;
 import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MotionEvent;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class TagActivity extends BaseActivity {
@@ -26,6 +29,7 @@ public class TagActivity extends BaseActivity {
 	private TextView errorText;
 
 	private BabySwipesDB mDataBase;
+	private Button closeButton;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -35,10 +39,11 @@ public class TagActivity extends BaseActivity {
 		// Connection to the db
 		mDataBase = new BabySwipesDB(getBaseContext());
 
-		// Init text fields
+		// Init fields
 		tagText = (TextView) findViewById(R.id.textView_Activity);
 		timeText = (TextView) findViewById(R.id.textView_Timestamp);
 		errorText = (TextView) findViewById(R.id.textView_ErrorMessage);
+		closeButton = (Button) this.findViewById(R.id.button_close);
 
 		// Read Tag
 		Intent intent = getIntent();
@@ -61,20 +66,37 @@ public class TagActivity extends BaseActivity {
 			
 			Calendar currentTime = Calendar.getInstance();
 
-			// FIXME : maybe store time in long ?
-			int timestamp = (int) currentTime.getTimeInMillis();
+			long timestamp = currentTime.getTimeInMillis();
 			SimpleDateFormat sdf = new SimpleDateFormat("h:mm:ss a");
-			String displayDate = sdf.format(currentTime.getTime());
+			String displayDate = sdf.format(timestamp);
 
 			if (mDataBase.addSwipe(activityName, timestamp)) {
 				tagText.setText(activityName);
 				errorText.setText("");
 				timeText.setText("Recorded at " + displayDate);
+				
+				this.closeButton.setOnClickListener(new OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						mDataBase.close();
+						finish();
+					}
+				});
+				
 			} else {
 				tagText.setText(activityName + " not recorded");
 				errorText.setText(activityName
 						+ " has not been registered with this device");
 				timeText.setText("");
+				this.closeButton.setText("Add a tag");
+				
+				this.closeButton.setOnClickListener(new OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						Intent i = new Intent(TagActivity.this, TrainingActivity.class);
+			            startActivity(i); 
+					}
+				});
 			}
 			
 		}
