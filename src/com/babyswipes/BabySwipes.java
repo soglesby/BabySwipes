@@ -51,6 +51,7 @@ public class BabySwipes extends Activity implements OnItemClickListener {
         myDB.addSwipe("nap", 1354027250);
         */
         
+        
         String text = "" + myDB.getNumberOfTags();
         textNumTags = (TextView) findViewById(R.id.tagNumText);
         textNumTags.setText(text);

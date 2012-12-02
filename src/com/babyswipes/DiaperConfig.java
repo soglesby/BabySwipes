@@ -27,11 +27,14 @@ public class DiaperConfig extends Activity implements OnClickListener{
     private NfcAdapter nfcAdapter;
     private boolean inWriteMode;
     private String activityPayload;
+    private BabySwipesDB mDataBase;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diaper_config);
+        
+        mDataBase = new BabySwipesDB(getBaseContext());
 
         diaperSpinner = (Spinner) findViewById(R.id.diaperSpinner);
         programButton = (Button) findViewById(R.id.programButton);
@@ -115,11 +118,13 @@ public class DiaperConfig extends Activity implements OnClickListener{
             inWriteMode = false;
             
             // write to newly scanned tag
+            String activity = "diaper/" + activityPayload;
             Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
-            nfcResult = NfcUtil.programTag(tag, "diaper/" + activityPayload);
+            nfcResult = NfcUtil.programTag(tag, activity);
             if (nfcResult) {
                 Toast.makeText(this, R.string.nfcSuccess, Toast.LENGTH_LONG).show();
                 NavUtils.navigateUpFromSameTask(this);
+                mDataBase.addTagType(activity);
             }
         }
     }
