@@ -21,7 +21,7 @@ import java.text.*;
 import java.util.Arrays;
 import java.util.Date;
 
-public class FeedingGraph extends Activity {
+public class FeedingGraph extends BaseActivity {
 	
 	private XYPlot mySimpleXYPlot;
 	
@@ -192,17 +192,6 @@ public class FeedingGraph extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_data, menu);
         return true;
-    }
-
-    
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                NavUtils.navigateUpFromSameTask(this);
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
 }

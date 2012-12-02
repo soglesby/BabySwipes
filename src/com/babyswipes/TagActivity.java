@@ -18,7 +18,7 @@ import android.view.Menu;
 import android.view.MotionEvent;
 import android.widget.TextView;
 
-public class TagActivity extends Activity {
+public class TagActivity extends BaseActivity {
 
 	private TextView tagText;
 	private TextView timeText;
