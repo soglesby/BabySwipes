@@ -29,11 +29,14 @@ public class OtherConfig extends Activity implements OnClickListener{
     private boolean inWriteMode;
     private String activityPayload;
     private String alertPayload;
+    private BabySwipesDB mDataBase;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_other_config);
+        
+        mDataBase = new BabySwipesDB(getBaseContext());
 
         otherSpinner = (Spinner) findViewById(R.id.otherSpinner);
         reminderSpinner = (Spinner) findViewById(R.id.reminderSpinner);
@@ -173,11 +176,13 @@ public class OtherConfig extends Activity implements OnClickListener{
             inWriteMode = false;
             
             // write to newly scanned tag
+            String activity = "other/" + activityPayload + "/" + alertPayload;
             Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
-            nfcResult = NfcUtil.programTag(tag, "other/" + activityPayload + "/" + alertPayload);
+            nfcResult = NfcUtil.programTag(tag, activity);
             if (nfcResult) {
                 Toast.makeText(this, R.string.nfcSuccess, Toast.LENGTH_LONG).show();
                 NavUtils.navigateUpFromSameTask(this);
+                mDataBase.addTagType(activity);
             }
         }
     }

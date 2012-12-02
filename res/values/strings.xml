@@ -63,8 +63,10 @@
     <string name="scanText">Begin NFC Tag Programming</string>
     <string name="cancelButton">Cancel</string>
     <string name="programButton">Program</string>
-    <string name="nfcPrompt">Place NFC tag against the back of the device and hold</string><string name="nfcSuccess">Tag programmed successfully!</string>
+    <string name="nfcPrompt">Place NFC tag against the back of the device and hold</string>
+    <string name="nfcSuccess">Tag programmed successfully!</string>
     <string name="nfcFail">Tag programming failed</string>
+
     <string-array name="tagTypeArrayFeedingGraph">
         <item>Feeding Graph</item>
         <item>Diaper Graph</item>
@@ -73,12 +75,15 @@
     </string-array>
 
     <string name="title_feeding_graph">Feeding Graph</string>
-    <string name="title_activity_diaper_graph">DiaperGraph</string>
-    <string name="title_activity_nap_graph">NapGraph</string>
-    <string name="title_activity_medicine_graph">MedicineGraph</string>
+    <string name="title_activity_diaper_graph">Diaper Graph</string>
+    <string name="title_activity_nap_graph">Nap Graph</string>
+    <string name="title_activity_medicine_graph">Medicine Graph</string>
+
     <string-array name="mainActivityArray">
-        <item >Add a Tag</item>
-        <item >View Data</item>
-    </string-array>    
+        <item>Add a Tag</item>
+        <item>View Data</item>
+    </string-array>
+
+    <string name="title_activity_tag">Tag Activity</string>
 
 </resources>
