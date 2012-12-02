@@ -35,7 +35,7 @@ public class BabySwipes extends Activity implements OnItemClickListener {
         
         myDB = new BabySwipesDB(getBaseContext());
         
-        
+        /*
         myDB.clearAllData();
 
         myDB.addTagType("medicine");
@@ -49,6 +49,7 @@ public class BabySwipes extends Activity implements OnItemClickListener {
         myDB.addSwipe("feeding", 1354047250);
         myDB.addSwipe("diaper", 1354037250);
         myDB.addSwipe("nap", 1354027250);
+        */
         
         
         String text = "" + myDB.getNumberOfTags();
