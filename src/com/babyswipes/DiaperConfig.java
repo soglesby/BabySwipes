@@ -48,13 +48,13 @@ public class DiaperConfig extends Activity implements OnClickListener{
                 Log.d(TAG, "Diaper item selected " + pos);
                 switch(pos) {
                 case 0:
-                    activityPayload = "";
+                    activityPayload = "Diaper Change";
                     break;
                 case 1:
-                    activityPayload = "wet";
+                    activityPayload = "Wet";
                     break;
                 case 2:
-                    activityPayload = "bm";
+                    activityPayload = "BM";
                     break;
                 }
             }
@@ -118,13 +118,12 @@ public class DiaperConfig extends Activity implements OnClickListener{
             inWriteMode = false;
             
             // write to newly scanned tag
-            String activity = "diaper/" + activityPayload;
             Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
-            nfcResult = NfcUtil.programTag(tag, activity);
+            nfcResult = NfcUtil.programTag(tag, activityPayload);
             if (nfcResult) {
                 Toast.makeText(this, R.string.nfcSuccess, Toast.LENGTH_LONG).show();
                 NavUtils.navigateUpFromSameTask(this);
-                mDataBase.addTagType(activity);
+                mDataBase.addTagType(activityPayload);
             }
         }
     }

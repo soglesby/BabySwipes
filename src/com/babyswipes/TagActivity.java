@@ -2,6 +2,7 @@ package com.babyswipes;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.StringTokenizer;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -51,8 +52,13 @@ public class TagActivity extends Activity {
 			NdefRecord activityNdef = msg.getRecords()[0];
 
 			// Display Data
-			String activityName = new String(activityNdef.getPayload());
-
+			String payload = new String(activityNdef.getPayload());
+			StringTokenizer st = new StringTokenizer(payload, "/");
+			String activityName = st.nextToken();
+			if (st.hasMoreTokens()) {
+			    String reminderTime = st.nextToken();
+			}
+			
 			Calendar currentTime = Calendar.getInstance();
 
 			// FIXME : maybe store time in long ?
@@ -70,7 +76,7 @@ public class TagActivity extends Activity {
 						+ " has not been registered with this device");
 				timeText.setText("");
 			}
-
+			
 		}
 	}
 

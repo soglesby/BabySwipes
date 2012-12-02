@@ -51,10 +51,10 @@ public class OtherConfig extends Activity implements OnClickListener{
                 Log.d(TAG, "Other item selected " + pos);
                 switch(pos) {
                 case 0:
-                    activityPayload = "nap";
+                    activityPayload = "Nap";
                     break;
                 case 1:
-                    activityPayload = "medicine";
+                    activityPayload = "Medicine";
                     break;
 
                 }
@@ -176,13 +176,13 @@ public class OtherConfig extends Activity implements OnClickListener{
             inWriteMode = false;
             
             // write to newly scanned tag
-            String activity = "other/" + activityPayload + "/" + alertPayload;
+            String activity = activityPayload + "/" + alertPayload;
             Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
             nfcResult = NfcUtil.programTag(tag, activity);
             if (nfcResult) {
                 Toast.makeText(this, R.string.nfcSuccess, Toast.LENGTH_LONG).show();
                 NavUtils.navigateUpFromSameTask(this);
-                mDataBase.addTagType(activity);
+                mDataBase.addTagType(activityPayload);
             }
         }
     }

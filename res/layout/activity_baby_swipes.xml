@@ -5,18 +5,6 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal" >
 
-
-
-
-
-
-
-
-
-
-
-
-
     <ListView
         android:id="@+id/mainActivityListView"
         android:layout_width="match_parent"
@@ -24,13 +12,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:entries="@array/mainActivityArray" >
-
     </ListView>
-
-
-
-
-
 
     <TextView
         android:id="@+id/tagRecentSwipe"
@@ -40,11 +22,6 @@
         android:layout_centerHorizontal="true"
         android:text="Recent Swipes"
         android:textAppearance="?android:attr/textAppearanceLarge" />
-
-
-
-
-
 
     <GridView
         android:id="@+id/mainGrid"

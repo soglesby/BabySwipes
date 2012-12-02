@@ -51,22 +51,22 @@ public class FeedingConfig extends Activity implements OnClickListener{
                 Log.d(TAG, "Feeding item selected " + pos);
                 switch(pos) {
                 case 0:
-                    activityPayload = "";
+                    activityPayload = "Feeding";
                     break;
                 case 1:
-                    activityPayload = "rightside";
+                    activityPayload = "Rightside";
                     break;
                 case 2:
-                    activityPayload = "leftside";
+                    activityPayload = "Leftside";
                     break;
                 case 3:
-                    activityPayload = "bottle";
+                    activityPayload = "Bottle";
                     break;
                 case 4:
-                    activityPayload = "formula";
+                    activityPayload = "Formula";
                     break;
                 case 5:
-                    activityPayload = "solid";
+                    activityPayload = "Solid";
                     break;
                 }
             }
@@ -187,13 +187,13 @@ public class FeedingConfig extends Activity implements OnClickListener{
             inWriteMode = false;
             
             // write to newly scanned tag
-            String activity = "Feeding/" + activityPayload + "/" + alertPayload;
+            String activity = activityPayload + "/" + alertPayload;
             Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
             nfcResult = NfcUtil.programTag(tag, activity);
             if (nfcResult) {
                 Toast.makeText(this, R.string.nfcSuccess, Toast.LENGTH_LONG).show();
                 NavUtils.navigateUpFromSameTask(this);
-                mDataBase.addTagType(activity);
+                mDataBase.addTagType(activityPayload);
             }
         }
     }

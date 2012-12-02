@@ -353,6 +353,10 @@ public class BabySwipesDB extends SQLiteOpenHelper
 		int baseLength = result.getCount();
 		int length = (baseLength < number ? baseLength : number);
 		
+		if (length == 0) {
+		    return null;
+		}
+		
 		BabySwipe[] swipes = new BabySwipe[length];
 		for(int i=0; i<length; ++i)
 		{

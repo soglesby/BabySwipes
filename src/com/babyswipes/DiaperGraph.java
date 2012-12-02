@@ -24,7 +24,7 @@ import java.util.Arrays;
 import java.util.Date;
 
 public class DiaperGraph extends Activity {
-	
+    private static final String TAG = "DiaperGraph";
 	private XYPlot mySimpleXYPlot;
 	
 	
@@ -38,11 +38,11 @@ public class DiaperGraph extends Activity {
         getActionBar().setDisplayHomeAsUpEnabled(true);
 
         
-        
+        mDataBase = new BabySwipesDB(getBaseContext());        
         //**************Database simulate data code******************         
         // This code adds data that will already be there.
         // REMOVE FOR INTEGRATION. 
-        
+        /*
         long curTime = System.currentTimeMillis();
         String s = "" + curTime; 
         Log.d("TIME", s);
@@ -51,7 +51,6 @@ public class DiaperGraph extends Activity {
         Log.d("TIME/1000", c);
         int times = (int) curTime; //need int for db methods
         
-        mDataBase = new BabySwipesDB(getBaseContext());
         mDataBase.clearAllData();// only use if you want to wipe the data
 
         mDataBase.addTagType("Diaper Change");
@@ -63,7 +62,8 @@ public class DiaperGraph extends Activity {
         mDataBase.addSwipe("Diaper Change", times + 500);
         mDataBase.addSwipe("Diaper Change", times + 510);
         mDataBase.addSwipe("Diaper Change", times + 578);
-        mDataBase.addSwipe("Diaper Change", times + 599);     
+        mDataBase.addSwipe("Diaper Change", times + 599);
+        */     
         // END REMOVE FOR INTEGRATION. 
        //**************Database sim code******************
        
@@ -86,17 +86,17 @@ public class DiaperGraph extends Activity {
         // Graph has a bug. need to add dummy element to end. 
         //Cleanest way for now is to create a new array.
         Number[] timeGraph = new Number[numRecent+1]; //new array with extra element
-        for(int i=0; i<numRecent; i++) //copy data over
+        for(int i=0; i<time.length; i++) //copy data over
         {
         	timeGraph[i] = time[i];
-        	Log.d("DEBUG", "timeGraph: " + i +" = " + timeGraph[i]);
+        	Log.d(TAG, "timeGraph: " + i +" = " + timeGraph[i]);
         }
-        Number x = time[numRecent-1];//get last value in array
+        Number x = time[time.length-1];//get last value in array
         //increment dummy value by some
         x = x.intValue()+100;
         // add dummy value to end
-        timeGraph[numRecent] = x; 
-        Log.d("DEBUG", "timeGraph: " + numRecent +" = " + timeGraph[numRecent]);
+        timeGraph[time.length] = x; 
+        Log.d(TAG, "timeGraph: " + time.length +" = " + timeGraph[time.length]);
 
 
         // Add y values, increments of 1 (with an extra dummy value).
@@ -104,7 +104,7 @@ public class DiaperGraph extends Activity {
         for(int i = 0; i < numRecent+1; i++)
         {
         	numSightings[i] = i+1;
-        	Log.d("numSightings", "nums: " + i +" = " + numSightings[i]);
+        	Log.d(TAG, "numSightings: " + i +" = " + numSightings[i]);
         }
         // End pull last 8 entries
         

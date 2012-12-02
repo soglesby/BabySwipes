@@ -35,9 +35,9 @@ public class BabySwipes extends Activity implements OnItemClickListener {
         
         myDB = new BabySwipesDB(getBaseContext());
         
-        /*
+        /*        
         myDB.clearAllData();
-
+        
         myDB.addTagType("medicine");
         myDB.addTagType("feeding");
         myDB.addTagType("diaper");
@@ -59,20 +59,22 @@ public class BabySwipes extends Activity implements OnItemClickListener {
     	String[] data = new String[10];
         BabySwipe recent[] = myDB.getRecentSwipes(5);
         
-        SimpleDateFormat formatter = new SimpleDateFormat("M-d h:mm:ss a");
-        
-        for(int i=0; i<recent.length; ++i)
-        {
-        	data[(i*2)] 	= recent[i].tagName;
-        	data[(i*2) + 1] = formatter.format(recent[i].swipeTime);
-        }
-        
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-				android.R.layout.simple_list_item_1, data);
+        if (recent != null) {
+            SimpleDateFormat formatter = new SimpleDateFormat("M-d h:mm:ss a");
+            
+            for(int i=0; i<recent.length; ++i)
+            {
+            	data[(i*2)] 	= recent[i].tagName;
+            	data[(i*2) + 1] = formatter.format(recent[i].swipeTime);
+            }
+            
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+    				android.R.layout.simple_list_item_1, data);
 
-        theGrid = (GridView) findViewById(R.id.mainGrid);
-        theGrid.setNumColumns(2);
-        theGrid.setAdapter(adapter);
+            theGrid = (GridView) findViewById(R.id.mainGrid);
+            theGrid.setNumColumns(2);
+            theGrid.setAdapter(adapter);
+        }
     }
 
     @Override
