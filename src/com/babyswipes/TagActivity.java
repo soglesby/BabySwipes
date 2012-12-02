@@ -71,7 +71,6 @@ public class TagActivity extends BaseActivity {
 				tagText.setText(activityName);
 				errorText.setText("");
 				timeText.setText("Recorded at " + displayDate);
-				switchPicture(activityName);
 				
 				this.closeButton.setOnClickListener(new OnClickListener() {
 					@Override
@@ -85,7 +84,7 @@ public class TagActivity extends BaseActivity {
 				tagText.setText(activityName + " not recorded");
 				errorText.setText(activityName
 						+ " has not been registered with this device");
-				timeText.setText("");
+				timeText.setText(""); 
 				this.closeButton.setText("Add a tag");
 				
 				this.closeButton.setOnClickListener(new OnClickListener() {
@@ -96,6 +95,8 @@ public class TagActivity extends BaseActivity {
 					}
 				});
 			}
+			
+			switchPicture(activityName);
 			
 		}
 	}

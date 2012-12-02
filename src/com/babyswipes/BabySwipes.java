@@ -60,11 +60,12 @@ public class BabySwipes extends BaseActivity implements OnItemClickListener {
         BabySwipe recent[] = myDB.getRecentSwipes(5);
         
         if (recent != null) {
-            SimpleDateFormat formatter = new SimpleDateFormat("M-d,yyyy h:mm:ss a");
+            SimpleDateFormat formatter = new SimpleDateFormat("EEEE, MMM d");
+            SimpleDateFormat timeFormat = new SimpleDateFormat("h:mm:ss a");
             for(int i=0; i<recent.length; ++i)
             {
             	data[(i*2)] 	= recent[i].tagName;
-            	data[(i*2) + 1] = formatter.format(recent[i].swipeTime);
+            	data[(i*2) + 1] = formatter.format(recent[i].swipeTime) + " at " + timeFormat.format(recent[i].swipeTime);
             }
             
             // Pad with empty data so it doesnt crash when adapter is set
