@@ -10,18 +10,22 @@ import android.widget.Toast;
 
 public class ManualEntry extends BaseActivity {
 
-    @Override
+    private BabySwipesDB mDataBase;
+
+	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manual_entry);
         getActionBar().setDisplayHomeAsUpEnabled(true);
+        
+        mDataBase = new BabySwipesDB(getBaseContext());
         
         ImageView diaperImg = (ImageView) findViewById(R.id.image_man_diaper);
         diaperImg.setClickable(true);
         diaperImg.setOnClickListener(new OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                    	recordData("Diaper");
+                    	recordData("Diaper Change");
                     }
         });
         
@@ -60,6 +64,7 @@ public class ManualEntry extends BaseActivity {
     }
     
     private void recordData(String activity){
+    	mDataBase.addTagType(activity);
     	Intent i = new Intent(this, TagActivity.class);
     	i.putExtra("tag", activity);
     	startActivity(i);
