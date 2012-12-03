@@ -12,7 +12,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.support.v4.app.NavUtils;
 
-public class DataActivity extends Activity implements OnItemClickListener {
+public class DataActivity extends BaseActivity implements OnItemClickListener {
 	
 	private static final String DATA_TAG = "DataActivity";
 	ListView tagTypeList;
@@ -32,18 +32,6 @@ public class DataActivity extends Activity implements OnItemClickListener {
         getMenuInflater().inflate(R.menu.activity_data, menu);
         return true;
     }
-
-    
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                NavUtils.navigateUpFromSameTask(this);
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-    
     
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {

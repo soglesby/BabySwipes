@@ -13,16 +13,25 @@
         android:layout_alignParentTop="true"
         android:entries="@array/mainActivityArray" >
     </ListView>
+    
+    <ImageView
+        android:id="@+id/image_baby"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_below="@id/mainActivityListView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/baby" />
 
     <TextView
         android:id="@+id/tagRecentSwipe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/mainActivityListView"
+        android:layout_below="@id/image_baby"
         android:layout_centerHorizontal="true"
         android:text="Recent Swipes"
         android:textAppearance="?android:attr/textAppearanceLarge" />
-
+    
     <GridView
         android:id="@+id/mainGrid"
         android:layout_width="match_parent"
@@ -33,38 +42,32 @@
         android:numColumns="3" >
 
     </GridView>
-
-
-
-
-
-
-
-
+    
+    <ImageView
+        android:id="@+id/image_bear"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_below="@id/mainGrid"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/bear" />    
 
     <TextView
         android:id="@+id/tagMainText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@id/mainGrid"
+        android:layout_below="@id/image_bear"
         android:layout_centerHorizontal="true"
         android:text="Tag Types Registered: "
         android:textAppearance="?android:attr/textAppearanceLarge" />
-
-
-
-
-
 
     <TextView
         android:id="@+id/tagNumText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="false"
-        android:layout_below="@id/mainGrid"
+        android:layout_below="@id/image_bear"
         android:layout_toRightOf="@+id/tagMainText"
+        android:layout_centerHorizontal="true"
         android:text="##"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 

@@ -36,7 +36,7 @@ public class BabySwipesDB extends SQLiteOpenHelper
 	public class BabySwipe
 	{
 		String tagName;
-		int swipeTime;
+		long swipeTime;
 	}
 	
 
@@ -245,7 +245,7 @@ public class BabySwipesDB extends SQLiteOpenHelper
 	 * @param swipeTime The time for this swipe.
 	 * @return true on success, false on failure.
 	 */
-	public boolean addSwipe(String tagName, int swipeTime)
+	public boolean addSwipe(String tagName, long swipeTime)
 	{
         Log.d(TAG, "adding swipe for tag: " + tagName + ", time: " + swipeTime);
         
@@ -300,7 +300,7 @@ public class BabySwipesDB extends SQLiteOpenHelper
 	 * @param tagName The tag for which to retrieve all the swipe times
 	 * @return an integer array of all swipes in the database for the given tag type, or null on error.
 	 */
-	public int[] getAllSwipeTimesForTag(String tagName)
+	public long[] getAllSwipeTimesForTag(String tagName)
 	{
         Log.d(TAG, "getting all swipes for tag: " + tagName);
         
@@ -315,7 +315,7 @@ public class BabySwipesDB extends SQLiteOpenHelper
 		
 		int length = this.getNumberSwipesForTag(tagName);
 		
-		int[] swipeTimes = new int[length];
+		long[] swipeTimes = new long[length];
 
         cols[0] = TAG_SWIPE_TIME;
 		result = mDB.query(TABLE_TAG_USAGE, cols, (TAG_NAME + "='" + tagName + "'"), null, null, null, null);
@@ -323,7 +323,7 @@ public class BabySwipesDB extends SQLiteOpenHelper
 		result.moveToFirst();
 		for(int i=0; i<length; ++i)
 		{
-			swipeTimes[i] = result.getInt(0);
+			swipeTimes[i] = result.getLong(0);
 			result.moveToNext();
 		}
 		
@@ -373,7 +373,7 @@ public class BabySwipesDB extends SQLiteOpenHelper
 		for(int i=0; i<length; ++i)
 		{
 			swipes[i].tagName = result.getString(0);
-			swipes[i].swipeTime = result.getInt(1);
+			swipes[i].swipeTime = result.getLong(1);
 			
 			result.moveToNext();
 		}
@@ -418,7 +418,7 @@ public class BabySwipesDB extends SQLiteOpenHelper
 		result.moveToFirst();
 		for(int i=0; i<length; ++i)
 		{
-			swipeTimes[i] = result.getInt(0);
+			swipeTimes[i] = result.getLong(0);
 			result.moveToNext();
 		}
 		
