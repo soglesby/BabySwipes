@@ -52,53 +52,59 @@ public class TagActivity extends BaseActivity {
 					NfcAdapter.EXTRA_NDEF_MESSAGES);
 			NdefMessage msg = (NdefMessage) rawMsgs[0];
 			NdefRecord activityNdef = msg.getRecords()[0];
-
-			// Display Data
 			String payload = new String(activityNdef.getPayload());
-			StringTokenizer st = new StringTokenizer(payload, "/");
-			String activityName = st.nextToken();
-			if (st.hasMoreTokens()) {
-			    String reminderTime = st.nextToken();
-			}
-			
-			Calendar currentTime = Calendar.getInstance();
-
-			long timestamp = currentTime.getTimeInMillis();
-			SimpleDateFormat sdf = new SimpleDateFormat("h:mm:ss a");
-			String displayDate = sdf.format(timestamp);
-
-			if (mDataBase.addSwipe(activityName, timestamp)) {
-				tagText.setText(activityName);
-				errorText.setText("");
-				timeText.setText("Recorded at " + displayDate);
-				
-				this.closeButton.setOnClickListener(new OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						mDataBase.close();
-						finish();
-					}
-				});
-				
-			} else {
-				tagText.setText(activityName + " not recorded");
-				errorText.setText(activityName
-						+ " has not been registered with this device");
-				timeText.setText(""); 
-				this.closeButton.setText("Add a tag");
-				
-				this.closeButton.setOnClickListener(new OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						Intent i = new Intent(TagActivity.this, TrainingActivity.class);
-			            startActivity(i); 
-					}
-				});
-			}
-			
-			switchPicture(activityName);
-			
+			displayData(payload);
+		} else if(intent.getExtras().containsKey("tag")){
+			displayData(intent.getExtras().getString("tag"));
 		}
+		
+	}
+	
+	private void displayData(String payload){
+		// Display Data
+		StringTokenizer st = new StringTokenizer(payload, "/");
+		String activityName = st.nextToken();
+		if (st.hasMoreTokens()) {
+		    String reminderTime = st.nextToken();
+		}
+		
+		Calendar currentTime = Calendar.getInstance();
+
+		long timestamp = currentTime.getTimeInMillis();
+		SimpleDateFormat sdf = new SimpleDateFormat("h:mm:ss a");
+		String displayDate = sdf.format(timestamp);
+
+		if (mDataBase.addSwipe(activityName, timestamp)) {
+			tagText.setText(activityName);
+			errorText.setText("");
+			timeText.setText("Recorded at " + displayDate);
+			
+			this.closeButton.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					mDataBase.close();
+					finish();
+				}
+			});
+			
+		} else {
+			tagText.setText(activityName + " not recorded");
+			errorText.setText(activityName
+					+ " has not been registered with this device");
+			timeText.setText(""); 
+			this.closeButton.setText("Add a tag");
+			
+			this.closeButton.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					Intent i = new Intent(TagActivity.this, TrainingActivity.class);
+		            startActivity(i); 
+				}
+			});
+		}
+		
+		switchPicture(activityName);
+		
 	}
 
 	/**

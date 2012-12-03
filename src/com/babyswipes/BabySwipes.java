@@ -102,6 +102,9 @@ public class BabySwipes extends BaseActivity implements OnItemClickListener {
         case 1:
             i = new Intent(this, DataActivity.class);
             break;   
+        case 2:
+            i = new Intent(this, ManualEntry.class);
+            break;  
         }
         if (i != null) 
             startActivity(i);

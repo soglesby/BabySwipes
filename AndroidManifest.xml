@@ -107,6 +107,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.babyswipes.BabySwipes" />
         </activity>
+        <activity
+            android:name=".ManualEntry"
+            android:label="@string/title_activity_manual_entry" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.babyswipes.BabySwipes" />
+        </activity>
     </application>
 
 </manifest>

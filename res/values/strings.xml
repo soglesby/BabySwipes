@@ -68,7 +68,6 @@
     <string name="nfcPrompt">Place NFC tag against the back of the device and hold</string>
     <string name="nfcSuccess">Tag programmed successfully!</string>
     <string name="nfcFail">Tag programming failed</string>
-    
     <string name="eraseDB">Data cleared successfully!</string>
 
     <string-array name="tagTypeArrayFeedingGraph">
@@ -88,11 +87,13 @@
     <string-array name="mainActivityArray">
         <item>Add a Tag</item>
         <item>View Data</item>
+        <item>Record Data</item>
     </string-array>
-    
     <string-array name="settingsActivityArray">
         <item>Clear All Data</item>
-        <item>Manual Entry Mode</item>
+        <item>Clear Swipe Activity</item>
     </string-array>
+
+    <string name="title_activity_manual_entry">Record Data</string>
 
 </resources>
