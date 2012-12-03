@@ -9,6 +9,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -18,7 +19,7 @@ import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.TextView;
 
-public class BabySwipes extends Activity implements OnItemClickListener {
+public class BabySwipes extends BaseActivity implements OnItemClickListener {
     private static final String TAG = "BabySwipes";
     ListView theList;
     TextView textNumTags;
@@ -51,7 +52,6 @@ public class BabySwipes extends Activity implements OnItemClickListener {
         myDB.addSwipe("nap", 1354027250);
         */
         
-        
         String text = "" + myDB.getNumberOfTags();
         textNumTags = (TextView) findViewById(R.id.tagNumText);
         textNumTags.setText(text);
@@ -60,12 +60,20 @@ public class BabySwipes extends Activity implements OnItemClickListener {
         BabySwipe recent[] = myDB.getRecentSwipes(5);
         
         if (recent != null) {
-            SimpleDateFormat formatter = new SimpleDateFormat("M-d h:mm:ss a");
-            
+            SimpleDateFormat formatter = new SimpleDateFormat("EEEE, MMM d");
+            SimpleDateFormat timeFormat = new SimpleDateFormat("h:mm:ss a");
             for(int i=0; i<recent.length; ++i)
             {
             	data[(i*2)] 	= recent[i].tagName;
-            	data[(i*2) + 1] = formatter.format(recent[i].swipeTime);
+            	data[(i*2) + 1] = formatter.format(recent[i].swipeTime) + " at " + timeFormat.format(recent[i].swipeTime);
+            }
+            
+            // Pad with empty data so it doesnt crash when adapter is set
+            if(recent.length < 5){
+            	for(int i = recent.length; i < 5; ++i){
+                	data[(i*2)] 	= "";
+                	data[(i*2) + 1] = "";
+            	}
             }
             
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
@@ -94,6 +102,9 @@ public class BabySwipes extends Activity implements OnItemClickListener {
         case 1:
             i = new Intent(this, DataActivity.class);
             break;   
+        case 2:
+            i = new Intent(this, ManualEntry.class);
+            break;  
         }
         if (i != null) 
             startActivity(i);
