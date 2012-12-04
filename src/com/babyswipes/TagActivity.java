@@ -114,10 +114,13 @@ public class TagActivity extends BaseActivity {
 	private void switchPicture(String activityName) {
 		
 		// @TODO These strings should really be converted to some enum or constants file
-		if(activityName.contains("Diaper")){
+		if((activityName.contains("Diaper")) || (activityName.contains("Wet"))
+		        || (activityName.contains("BM)"))){
 			image.setImageResource(R.drawable.diaper);
 		}
-		else if(activityName.contains("Feeding")){
+		else if((activityName.contains("Feeding")) || (activityName.contains("Leftside"))
+		        || (activityName.contains("Rightside")) || (activityName.contains("Bottled"))
+		        || (activityName.contains("Formula")) || (activityName.contains("Solid"))) {
 			image.setImageResource(R.drawable.bottle);
 		}
 		else if(activityName.contains("Nap")){

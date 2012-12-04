@@ -23,13 +23,29 @@
             android:text="@string/actionText"
             android:textAppearance="?android:attr/textAppearanceSmall" />
         
-	    <Spinner
-	        android:id="@+id/diaperSpinner"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:entries="@array/diaperTagsArray" />
-    </GridLayout>
+        <TextView
+            android:id="@+id/napTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/napAction"
+            android:paddingLeft="10dp"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+        
+        <TextView
+            android:id="@+id/reminderTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/reminderText"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+        
+        <Spinner
+            android:id="@+id/reminderSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/reminderTimesArray" />
     
+    </GridLayout>
+
     <LinearLayout
         android:id="@+id/cancelokLayout"
         android:layout_width="match_parent"
@@ -53,5 +69,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/programButton" />
+
     </LinearLayout>
 </LinearLayout>
