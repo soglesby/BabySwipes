@@ -43,8 +43,14 @@ public class TrainingActivity extends BaseActivity implements OnItemClickListene
         case 1: //Diapers
             i = new Intent(this, DiaperConfig.class);
             break;
-        case 2: //Other
-            i = new Intent(this, OtherConfig.class);
+        case 2: //Medicine
+            i = new Intent(this, MedicineConfig.class);
+            break;
+        case 3: //Nap
+            i = new Intent(this, NapConfig.class);
+            break;
+        case 4: //Custom
+            i = new Intent(this, CustomConfig.class);
             break;
         }
         if (i != null) 

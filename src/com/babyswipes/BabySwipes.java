@@ -5,16 +5,13 @@ import java.text.SimpleDateFormat;
 import com.babyswipes.BabySwipesDB.BabySwipe;
 
 import android.os.Bundle;
-import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.TextView;
@@ -94,7 +91,7 @@ public class BabySwipes extends BaseActivity implements OnItemClickListener {
     //@Override
     public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
         Intent i = null;
-        //Log.d(TAG, pos + " selected");
+        Log.d(TAG, pos + " selected");
         switch(pos) {
         case 0:
             i = new Intent(this, TrainingActivity.class);  

@@ -7,6 +7,8 @@ import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,14 +16,15 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.support.v4.app.NavUtils;
 
-public class OtherConfig extends Activity implements OnClickListener{
-    private static final String TAG = "OtherConfig";
-    private Spinner otherSpinner;
+public class CustomConfig extends Activity implements OnClickListener{
+    private static final String TAG = "CustomConfig";
+    private EditText customText;
     private Spinner reminderSpinner;
     private Button programButton;
     private Button cancelButton;
@@ -34,37 +37,43 @@ public class OtherConfig extends Activity implements OnClickListener{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_other_config);
+        setContentView(R.layout.activity_custom_config);
         
         mDataBase = new BabySwipesDB(getBaseContext());
 
-        otherSpinner = (Spinner) findViewById(R.id.otherSpinner);
+        customText = (EditText) findViewById(R.id.customText);
         reminderSpinner = (Spinner) findViewById(R.id.reminderSpinner);
         programButton = (Button) findViewById(R.id.programButton);
         programButton.setOnClickListener(this);
+        programButton.setEnabled(false);
         cancelButton = (Button) findViewById(R.id.cancelButton);
         cancelButton.setOnClickListener(this);
         
-        otherSpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int pos,long id) {
-                Log.d(TAG, "Other item selected " + pos);
-                switch(pos) {
-                case 0:
-                    activityPayload = "Nap";
-                    break;
-                case 1:
-                    activityPayload = "Medicine";
-                    break;
+        customText.addTextChangedListener(new TextWatcher() {
 
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (!customText.getText().toString().isEmpty()) {
+                    programButton.setEnabled(true);
+                } else {
+                    programButton.setEnabled(false);
                 }
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> arg0) {
+            public void beforeTextChanged(CharSequence s, int start, int count,
+                    int after) {
                 // TODO Auto-generated method stub
                 
             }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before,
+                    int count) {
+                // TODO Auto-generated method stub
+                
+            }
+            
         });
         
         reminderSpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -157,6 +166,7 @@ public class OtherConfig extends Activity implements OnClickListener{
             break;
         case R.id.programButton:
             Log.d(TAG, "programButton onCLicked");
+            activityPayload = customText.getText().toString();
             Toast.makeText(this, R.string.nfcPrompt, Toast.LENGTH_LONG).show();
             enableTagWrite();
             break;

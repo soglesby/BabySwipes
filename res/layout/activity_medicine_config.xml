@@ -21,20 +21,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/actionText"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+        
+        <TextView
+            android:id="@+id/napTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/medicineAction"
+            android:paddingLeft="10dp"
             android:textAppearance="?android:attr/textAppearanceMedium" />
         
-	    <Spinner
-	        android:id="@+id/otherSpinner"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:entries="@array/otherTagsArray" />
-	    
-	    <TextView
+        <TextView
             android:id="@+id/reminderTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/reminderText"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:textAppearance="?android:attr/textAppearanceSmall" />
         
         <Spinner
             android:id="@+id/reminderSpinner"
