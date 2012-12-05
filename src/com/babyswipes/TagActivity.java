@@ -9,6 +9,7 @@ import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Parcelable;
 import android.view.Menu;
 import android.view.View;
@@ -22,6 +23,7 @@ public class TagActivity extends BaseActivity {
 	private TextView tagText;
 	private TextView timeText;
 	private TextView errorText;
+	private TextView countdownText;
 	private ImageView image; 
 
 	private BabySwipesDB mDataBase;
@@ -38,6 +40,7 @@ public class TagActivity extends BaseActivity {
 		// Init fields
 		tagText = (TextView) findViewById(R.id.textView_Activity);
 		timeText = (TextView) findViewById(R.id.textView_Timestamp);
+		countdownText = (TextView) findViewById(R.id.textView_countdown);
 		errorText = (TextView) findViewById(R.id.textView_ErrorMessage);
 		closeButton = (Button) this.findViewById(R.id.button_close);
 		image = (ImageView) findViewById(R.id.imageView1);
@@ -68,24 +71,38 @@ public class TagActivity extends BaseActivity {
 		    String reminderTime = st.nextToken();
 		}
 		
+		switchPicture(activityName);
+		
 		Calendar currentTime = Calendar.getInstance();
 
 		long timestamp = currentTime.getTimeInMillis();
 		SimpleDateFormat sdf = new SimpleDateFormat("h:mm:ss a");
 		String displayDate = sdf.format(timestamp);
-
+		
 		if (mDataBase.addSwipe(activityName, timestamp)) {
 			tagText.setText(activityName);
 			errorText.setText("");
 			timeText.setText("Recorded at " + displayDate);
+			mDataBase.close();
 			
-			this.closeButton.setOnClickListener(new OnClickListener() {
+			closeButton.setVisibility(View.GONE);
+
+			//Lets do a countdown before we finish
+			CountDownTimer countdown = new CountDownTimer(5000, 1000) {
+				
 				@Override
-				public void onClick(View v) {
-					mDataBase.close();
-					finish();
-				}
-			});
+				public void onTick(long millisUntilFinished) {
+		            countdownText.setText(millisUntilFinished / 1000 + " seconds to cancel");
+		        }
+
+		        public void onFinish() {
+		        	countdownText.setText("");
+		        	finish();	        	
+		        }
+
+			};
+			
+			countdown.start();
 			
 		} else {
 			tagText.setText(activityName + " not recorded");
@@ -103,7 +120,7 @@ public class TagActivity extends BaseActivity {
 			});
 		}
 		
-		switchPicture(activityName);
+		
 		
 	}
 
