@@ -122,6 +122,7 @@ public class TagActivity extends BaseActivity {
 			errorText.setText(activityName
 					+ " has not been registered with this device");
 			timeText.setVisibility(View.GONE); 
+			countdownText.setVisibility(View.GONE);
 			this.closeButton.setText("Add a tag");
 			
 			this.closeButton.setOnClickListener(new OnClickListener() {
