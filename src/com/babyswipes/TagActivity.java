@@ -36,6 +36,7 @@ public class TagActivity extends BaseActivity {
 
 		// Connection to the db
 		mDataBase = new BabySwipesDB(getBaseContext());
+		boolean save;
 
 		// Init fields
 		tagText = (TextView) findViewById(R.id.textView_Activity);
@@ -63,52 +64,64 @@ public class TagActivity extends BaseActivity {
 		
 	}
 	
+	/**
+	 * Display data dynamically
+	 * @param payload
+	 */
 	private void displayData(String payload){
-		// Display Data
+		
+		// Get the activity name
 		StringTokenizer st = new StringTokenizer(payload, "/");
-		String activityName = st.nextToken();
+		final String activityName = st.nextToken();
 		if (st.hasMoreTokens()) {
 		    String reminderTime = st.nextToken();
 		}
 		
+		// Display the correct picture
 		switchPicture(activityName);
 		
+		// Display the correct time
 		Calendar currentTime = Calendar.getInstance();
-
-		long timestamp = currentTime.getTimeInMillis();
+		final long timestamp = currentTime.getTimeInMillis();
 		SimpleDateFormat sdf = new SimpleDateFormat("h:mm:ss a");
 		String displayDate = sdf.format(timestamp);
 		
-		if (mDataBase.addSwipe(activityName, timestamp)) {
-			tagText.setText(activityName);
-			errorText.setText("");
-			timeText.setText("Recorded at " + displayDate);
-			mDataBase.close();
-			
-			closeButton.setVisibility(View.GONE);
-
-			//Lets do a countdown before we finish
-			CountDownTimer countdown = new CountDownTimer(5000, 1000) {
-				
+		// Check if activity exists
+		if (mDataBase.doesTagExist(activityName)) {
+			final CountDownTimer countdown = new CountDownTimer(5000, 1000) {
 				@Override
 				public void onTick(long millisUntilFinished) {
-		            countdownText.setText(millisUntilFinished / 1000 + " seconds to cancel");
+		            countdownText.setText("swipe will be recorded in "+  millisUntilFinished / 1000 + " seconds");
 		        }
-
-		        public void onFinish() {
-		        	countdownText.setText("");
-		        	finish();	        	
+		        public void onFinish() {			
+		        	mDataBase.addSwipe(activityName, timestamp);
+		        	exit();
 		        }
-
 			};
+			
+			
+			// Display the correct text and button logic
+			tagText.setText(activityName);
+			errorText.setVisibility(View.GONE);
+			timeText.setText("Recorded at " + displayDate);
+			this.closeButton.setText("Cancel");
+			this.closeButton.setOnClickListener(new OnClickListener() {
+				// Give the user a chance to cancel
+				@Override
+				public void onClick(View v) {
+					countdown.cancel();
+					exit();
+				}
+			});
 			
 			countdown.start();
 			
+		// Tag needs to be registered
 		} else {
 			tagText.setText(activityName + " not recorded");
 			errorText.setText(activityName
 					+ " has not been registered with this device");
-			timeText.setText(""); 
+			timeText.setVisibility(View.GONE); 
 			this.closeButton.setText("Add a tag");
 			
 			this.closeButton.setOnClickListener(new OnClickListener() {
@@ -116,12 +129,18 @@ public class TagActivity extends BaseActivity {
 				public void onClick(View v) {
 					Intent i = new Intent(TagActivity.this, TrainingActivity.class);
 		            startActivity(i); 
+		            exit();
 				}
 			});
 		}
-		
-		
-		
+	}
+	
+	/**
+	 * How to exit activity
+	 */
+	private void exit(){
+		mDataBase.close();
+		finish();
 	}
 
 	/**
