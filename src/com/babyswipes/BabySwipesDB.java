@@ -146,6 +146,22 @@ public class BabySwipesDB extends SQLiteOpenHelper
 	}
 	
 	/**
+	 * Check if tag is registered in the database
+	 * @param tagName
+	 * @return
+	 */
+	public boolean doesTagExist(String tagName){
+        String[] cols = new String[1];
+        cols[0] = ID;
+		Cursor result = mDB.query(TABLE_TAG_TYPES, cols, (TAG_NAME + "='" + tagName + "'"), null, null, null, null);
+		if(result.getCount() != 0)
+		{
+			return true;
+		}
+		return false;
+	}
+	
+	/**
 	 * Retrieve all tag names from the database
 	 * 
 	 * @return Array of strings representing all the tag names in the database.

@@ -94,12 +94,11 @@
         </activity>
         <activity
             android:name=".TagActivity"
-            android:label="@string/title_activity_baby_swipes" >
+            android:label="Activity Swiped!"
+            android:theme="@android:style/Theme.Holo.Light.Dialog" >
             <intent-filter>
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
-
                 <data android:mimeType="application/com.babyswipes" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

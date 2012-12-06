@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="119dp"
+        android:layout_marginTop="20dp"
         android:text="[Activity Name]"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -22,15 +22,6 @@
         android:text="[Error Message]"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="#ff0000" />
-
-    <android.gesture.GestureOverlayView
-        android:id="@+id/gestureOverlayView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:gestureColor="#ff0000" >
-    </android.gesture.GestureOverlayView>
 
     <ImageView
         android:id="@+id/imageView1"
@@ -47,6 +38,7 @@
         android:layout_below="@+id/textView_Timestamp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="42dp"
+        android:layout_marginBottom="100dp"
         android:text="@string/okButton" />
 
     <TextView
@@ -58,5 +50,15 @@
         android:layout_marginTop="23dp"
         android:text="[Timestamp]"
         android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/textView_countdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView_Timestamp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"
+        android:text="[time left]"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
 
 </RelativeLayout>
