@@ -60,15 +60,16 @@
         android:layout_centerHorizontal="true"
         android:text="Tag Types Registered: "
         android:textAppearance="?android:attr/textAppearanceLarge" />
-
+
     <TextView
         android:id="@+id/tagNumText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/image_bear"
-        android:layout_toRightOf="@+id/tagMainText"
         android:layout_centerHorizontal="true"
+        android:layout_toRightOf="@+id/tagMainText"
         android:text="##"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@android:color/holo_green_dark" />
 
 </RelativeLayout>

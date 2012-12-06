@@ -62,7 +62,7 @@ public class BabySwipes extends BaseActivity implements OnItemClickListener {
             for(int i=0; i<recent.length; ++i)
             {
             	data[(i*2)] 	= recent[i].tagName;
-            	data[(i*2) + 1] = formatter.format(recent[i].swipeTime) + " at " + timeFormat.format(recent[i].swipeTime);
+            	data[(i*2) + 1] = formatter.format(recent[i].swipeTime * 1000) + " at " + timeFormat.format(recent[i].swipeTime * 1000);
             }
             
             // Pad with empty data so it doesnt crash when adapter is set

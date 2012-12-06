@@ -94,7 +94,7 @@ public class TagActivity extends BaseActivity {
 		            countdownText.setText("swipe will be recorded in "+  millisUntilFinished / 1000 + " seconds");
 		        }
 		        public void onFinish() {			
-		        	mDataBase.addSwipe(activityName, timestamp);
+		        	mDataBase.addSwipe(activityName, timestamp / 1000);
 		        	exit();
 		        }
 			};
