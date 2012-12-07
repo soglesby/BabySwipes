@@ -79,7 +79,7 @@
     </string-array>
 
     <string name="title_feeding_graph">Feeding Graph</string>
-    <string name="title_activity_diaper_graph">Diaper Graph</string>
+    <string name="title_activity_diaper_graph">Data Graph</string>
     <string name="title_activity_nap_graph">Nap Graph</string>
     <string name="title_activity_medicine_graph">Medicine Graph</string>
     <string name="title_activity_tag">Tag Activity</string>
@@ -92,7 +92,7 @@
     </string-array>
     <string-array name="settingsActivityArray">
         <item>Clear All Data</item>
-        <item>Manual Entry Mode</item>
+        <item>Clear Swipe Activity</item>
     </string-array>
 
     <string name="title_activity_manual_entry">Record Data</string>
@@ -101,6 +101,10 @@
     <string name="title_activity_medicine_config">MedicineConfigActivity</string>
     <string name="medicineAction">Medicine</string>
     <string name="customHintText">Custom Activity</string>
+<<<<<<< HEAD
     <string name="title_activity_reminder">ReminderActivity</string>
+=======
+    <string name="title_activity_clear_swipe">Clear Swipe</string>
+>>>>>>> upstream/master
 
 </resources>

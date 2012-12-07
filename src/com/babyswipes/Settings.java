@@ -72,7 +72,11 @@ public class Settings extends BaseActivity implements OnItemClickListener {
              .show();
             break;
         case 1:
-            Toast.makeText(Settings.this, "Not Implemented Yet", Toast.LENGTH_LONG).show();
+            //Toast.makeText(Settings.this, "Not Implemented Yet", Toast.LENGTH_LONG).show();
+            
+            Intent i = new Intent(this, ClearSwipe.class);
+            startActivity(i);
+            
             break;   
         }
     }
