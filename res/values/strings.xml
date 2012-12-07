@@ -92,7 +92,7 @@
     
     <string-array name="settingsActivityArray">
         <item>Clear All Data</item>
-        <item>Manual Entry Mode</item>
+        <item>Clear Swipe Activity</item>
     </string-array>
 
     <string name="title_activity_manual_entry">Record Data</string>
@@ -101,5 +101,6 @@
     <string name="title_activity_medicine_config">MedicineConfigActivity</string>
     <string name="medicineAction">Medicine</string>
     <string name="customHintText">Custom Activity</string>
+    <string name="title_activity_clear_swipe">Clear Swipe</string>
 
 </resources>
