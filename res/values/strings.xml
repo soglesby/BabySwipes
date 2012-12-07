@@ -78,7 +78,7 @@
     </string-array>
 
     <string name="title_feeding_graph">Feeding Graph</string>
-    <string name="title_activity_diaper_graph">Diaper Graph</string>
+    <string name="title_activity_diaper_graph">Data Graph</string>
     <string name="title_activity_nap_graph">Nap Graph</string>
     <string name="title_activity_medicine_graph">Medicine Graph</string>
     <string name="title_activity_tag">Tag Activity</string>

@@ -36,10 +36,9 @@ public class ClearSwipe extends BaseActivity implements OnItemSelectedListener, 
     public void onCreate(Bundle savedInstanceState)
     {
     	Spinner theSpinner;
-    	
-        super.onCreate(savedInstanceState);
-        
+    	super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_clear_swipe);
+        getActionBar().setDisplayHomeAsUpEnabled(true);
 
         myDB = new BabySwipesDB(getBaseContext());
         
