@@ -2,7 +2,9 @@ package com.babyswipes;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.AlarmManager;
 import android.app.AlertDialog;
+import android.app.PendingIntent;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.util.Log;
@@ -46,10 +48,19 @@ public class Settings extends BaseActivity implements OnItemClickListener {
         case 0:
         	new AlertDialog.Builder(this)
             .setTitle("Clear All Data")
-            .setMessage("Are you sure you want to clear all programmed tags and data?")
+            .setMessage("Are you sure you want to clear all programmed tags, swipes and reminders?")
             .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) { 
                 	mDataBase.clearAllData();
+                	
+                	// Clear reminders
+            		AlarmManager alarmManager = (AlarmManager) getSystemService(Activity.ALARM_SERVICE);		
+            		Intent reminderAlert = new Intent(Settings.this, ReminderReceiver.class);
+            		PendingIntent pi = PendingIntent
+            				.getBroadcast(Settings.this, 0, reminderAlert, 0);
+                	
+            		alarmManager.cancel(pi); // will cancel any matching intents
+            		
                     Toast.makeText(Settings.this, R.string.eraseDB, Toast.LENGTH_LONG).show();
                 }
              })

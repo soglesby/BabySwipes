@@ -44,6 +44,8 @@
 
     <string-array name="reminderTimesArray">
         <item>None</item>
+        <item>1 minute</item>
+        <item>30 minutes</item>
         <item>1 hour</item>
         <item>2 hours</item>
         <item>3 hours</item>
@@ -67,7 +69,6 @@
     <string name="nfcPrompt">Place NFC tag against the back of the device and hold</string>
     <string name="nfcSuccess">Tag programmed successfully!</string>
     <string name="nfcFail">Tag programming failed</string>
-    
     <string name="eraseDB">Data cleared successfully!</string>
 
     <string-array name="tagTypeArrayFeedingGraph">
@@ -89,7 +90,6 @@
         <item>View Data</item>
         <item>Record Data</item>
     </string-array>
-    
     <string-array name="settingsActivityArray">
         <item>Clear All Data</item>
         <item>Manual Entry Mode</item>
@@ -101,5 +101,6 @@
     <string name="title_activity_medicine_config">MedicineConfigActivity</string>
     <string name="medicineAction">Medicine</string>
     <string name="customHintText">Custom Activity</string>
+    <string name="title_activity_reminder">ReminderActivity</string>
 
 </resources>

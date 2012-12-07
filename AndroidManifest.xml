@@ -17,6 +17,8 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+    
+        <receiver android:name="com.babyswipes.ReminderReceiver" android:process=":remote" />
         <activity
             android:name=".BabySwipes"
             android:label="@string/title_activity_baby_swipes" >
@@ -98,7 +100,9 @@
             android:theme="@android:style/Theme.Holo.Light.Dialog" >
             <intent-filter>
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+
                 <data android:mimeType="application/com.babyswipes" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -131,6 +135,13 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.babyswipes.TrainingActivity" />
+        </activity>
+        <activity
+            android:name=".ReminderActivity"
+            android:label="@string/title_activity_reminder" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.babyswipes.BabySwipes" />
         </activity>
     </application>
 
