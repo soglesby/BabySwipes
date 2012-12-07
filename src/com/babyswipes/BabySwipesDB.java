@@ -350,7 +350,7 @@ public class BabySwipesDB extends SQLiteOpenHelper
 	 * Get the most recent swipes from the database, regardless of tag type.
 	 * 
 	 * @param number Number of swipes to return, must be non-negative
-	 * @return Array of type BabySwipe, each representing a single tag-time pair, or null if error
+	 * @return Array of type BabySwipe, each representing a single tag-time pair, or null if error or empty data
 	 */
 	public BabySwipe[] getRecentSwipes(int number)
 	{
@@ -439,5 +439,25 @@ public class BabySwipesDB extends SQLiteOpenHelper
 		}
 		
 		return swipeTimes;
+	}
+
+	/**
+	 * Deletes a single swipe out of the database
+	 * 
+	 * @param tagName Tag name to be deleted
+	 * @param timestamp Number Tag time to be deleted
+	 * @return true if a single item in the swipe table matching the given (tag name, tag time) pair
+	 * was deleted from the database. false otherwise.
+	 */
+	public boolean removeSwipe(String tagName, long timestamp)
+	{
+		Log.d(TAG, "removing tag: " + tagName + " at time: " + timestamp);
+		
+		String whereClause = TAG_NAME + " = '" + tagName + "' AND " + TAG_SWIPE_TIME + " = '" + timestamp + "'";
+		
+		if(mDB.delete(TABLE_TAG_USAGE, whereClause, null) == 1)
+			return true;
+		else
+			return false;
 	}
 }
