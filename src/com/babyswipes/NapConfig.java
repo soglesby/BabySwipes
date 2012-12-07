@@ -21,13 +21,14 @@ import android.support.v4.app.NavUtils;
 
 public class NapConfig extends Activity implements OnClickListener {
     private static final String TAG = "NapConfig";
+	private static final int NO_ALARM = -1;
     private Spinner reminderSpinner;
     private Button programButton;
     private Button cancelButton;
     private NfcAdapter nfcAdapter;
     private boolean inWriteMode;
     private String activityPayload = "Nap";
-    private String alertPayload;
+    private int alertPayload;
     private BabySwipesDB mDataBase;
     
     @Override
@@ -49,48 +50,54 @@ public class NapConfig extends Activity implements OnClickListener {
                 Log.d(TAG, "Reminder item selected " + pos);
                 switch(pos) {
                 case 0:
-                    alertPayload = "none";
+                    alertPayload = NO_ALARM;
                     break;
-                case 1:
-                    alertPayload = "1h";
+                case 1: // 60 seconds
+                    alertPayload = 60;
                     break;
-                case 2:
-                    alertPayload = "2h";
+                case 2: // 30 minutes
+                	alertPayload = 1800;
+                	break;
+                case 3: // 1 hours
+                    alertPayload = 360;
                     break;
-                case 3:
-                    alertPayload = "3h";
+                case 4: // 2 hours
+                    alertPayload = 720;
                     break;
-                case 4:
-                    alertPayload = "4h";
+                case 5: // 3 hours 
+                    alertPayload = 1080;
                     break;
-                case 5:
-                    alertPayload = "5h";
+                case 6: // 4 hours
+                    alertPayload = 1440;
                     break;
-                case 6:
-                    alertPayload = "6h";
+                case 7: // 5 hours
+                    alertPayload = 1800;
                     break;
-                case 7:
-                    alertPayload = "7h";
+                case 8: // 6 hours
+                    alertPayload = 2160;
                     break;
-                case 8:
-                    alertPayload = "8h";
+                case 9: // 7 hours
+                    alertPayload = 2520;
                     break;
-                case 9:
-                    alertPayload = "9h";
+                case 10: // 8 hours
+                    alertPayload = 2880;
                     break;
-                case 10:
-                    alertPayload = "10h";
+                case 11: // 9 hours
+                    alertPayload = 3240;
                     break;
-                case 11:
-                    alertPayload = "11h";
+                case 12: // 10 hours
+                    alertPayload = 3600;
                     break;
-                case 12:
-                    alertPayload = "12h";
+                case 13: // 11 hours
+                    alertPayload = 3960;
                     break;
-                case 13:
-                    alertPayload = "24h";
+                case 14: // 12 hours
+                    alertPayload = 4320;
                     break;
-                }
+	            case 15: // 24 hours
+	                alertPayload = 8640;
+	                break;
+	            }
             }
 
             @Override
@@ -158,6 +165,13 @@ public class NapConfig extends Activity implements OnClickListener {
                 Toast.makeText(this, R.string.nfcSuccess, Toast.LENGTH_LONG).show();
                 NavUtils.navigateUpFromSameTask(this);
                 mDataBase.addTagType(activityPayload);
+                if(alertPayload > NO_ALARM){
+                	Intent reminderIntent = new Intent(this, ReminderActivity.class);
+                	reminderIntent.putExtra("activity", activityPayload);
+                	reminderIntent.putExtra("seconds", alertPayload);
+                	startActivity(reminderIntent);
+                	mDataBase.setReminderForTag(activityPayload, alertPayload);
+                }
             }
         }
     }

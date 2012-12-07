@@ -21,6 +21,7 @@ import android.support.v4.app.NavUtils;
 
 public class DiaperConfig extends Activity implements OnClickListener{
     private static final String TAG = "DiaperConfig";
+	private static final int NO_ALARM = -1;
     private Spinner diaperSpinner;
     private Button programButton;
     private Button cancelButton;
