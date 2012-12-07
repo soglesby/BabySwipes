@@ -49,6 +49,16 @@ public class BabySwipes extends BaseActivity implements OnItemClickListener {
         myDB.addSwipe("nap", 1354027250);
         */
         
+    }
+    
+    /**
+     * Refresh the view whenever this page is brought to the front
+     */
+    @Override
+    public void onResume(){
+        
+    	super.onResume();
+    	
         String text = "" + myDB.getNumberOfTags();
         textNumTags = (TextView) findViewById(R.id.tagNumText);
         textNumTags.setText(text);
