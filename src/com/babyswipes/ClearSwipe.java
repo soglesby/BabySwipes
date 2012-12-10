@@ -96,7 +96,7 @@ public class ClearSwipe extends BaseActivity implements OnItemSelectedListener, 
 	        	
 	        	for(int i=0; i<recent.length; ++i)
 	        	{
-	        		items[i] = recent[i].tagName + ": " + formatter.format(recent[i].swipeTime) + " at " + timeFormat.format(recent[i].swipeTime);
+	        		items[i] = recent[i].tagName + ": " + formatter.format(recent[i].swipeTime) + " at " + timeFormat.format(recent[i].swipeTime * 1000);
 	        		currentTags[i] = recent[i].tagName;
 	        		currentTimes[i] = recent[i].swipeTime;
 	        	}
