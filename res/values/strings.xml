@@ -101,10 +101,7 @@
     <string name="title_activity_medicine_config">MedicineConfigActivity</string>
     <string name="medicineAction">Medicine</string>
     <string name="customHintText">Custom Activity</string>
-<<<<<<< HEAD
     <string name="title_activity_reminder">ReminderActivity</string>
-=======
     <string name="title_activity_clear_swipe">Clear Swipe</string>
->>>>>>> upstream/master
 
 </resources>
